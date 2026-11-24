@@ -1,0 +1,5 @@
+build/
+*.dot
+*.png
+.vscode/
+.DS_Store
