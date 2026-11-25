@@ -1,0 +1,17 @@
+{
+  "items": [
+    { "name": "Frontend-Server", "ci_type": "Server", "ip_address": "10.0.1.10", "port": 443, "status": "ACTIVE" },
+    { "name": "Auth-Server",     "ci_type": "Server", "ip_address": "10.0.1.11", "port": 8080, "status": "ACTIVE" },
+    { "name": "Payment-Server",  "ci_type": "Server", "ip_address": "10.0.1.12", "port": 8081, "status": "ACTIVE" },
+    { "name": "Main-DB-Server",  "ci_type": "Server", "ip_address": "10.0.2.5",  "port": 5432, "status": "ACTIVE" },
+    { "name": "Cache-Server",    "ci_type": "Server", "ip_address": "10.0.2.6",  "port": 6379, "status": "ACTIVE" },
+    { "name": "Backup-Server",   "ci_type": "Server", "ip_address": "10.0.3.99", "port": 22,   "status": "ACTIVE" }
+  ],
+  "dependencies": [
+    { "source_ip": "10.0.1.10", "target_ip": "10.0.1.11", "protocol": "HTTPS", "is_critical": true },
+    { "source_ip": "10.0.1.10", "target_ip": "10.0.1.12", "protocol": "HTTPS", "is_critical": true },
+    { "source_ip": "10.0.1.11", "target_ip": "10.0.2.5",  "protocol": "TCP:5432", "is_critical": true },
+    { "source_ip": "10.0.1.11", "target_ip": "10.0.2.6",  "protocol": "TCP:6379", "is_critical": false },
+    { "source_ip": "10.0.1.12", "target_ip": "10.0.2.5",  "protocol": "TCP:5432", "is_critical": true }
+  ]
+}

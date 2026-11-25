@@ -34,6 +34,7 @@ bool TopologyGraph::removeItem(int id) {
         }
         it->second = clean_list;
     }
+    return true;
 };
 
 bool TopologyGraph::updateItemStatus(int id, const std::string& new_status) {
